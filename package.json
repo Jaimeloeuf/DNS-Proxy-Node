@@ -1,0 +1,23 @@
+{
+  "name": "dns-proxy",
+  "version": "0.0.1",
+  "description": "DNS Proxy / Sinkhole server",
+  "main": "src/index.js",
+  "dependencies": {
+    "async": "^3.2.0",
+    "native-dns": "^0.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaimeloeuf/DNS-Proxy-Node.git"
+  },
+  "author": "JJ",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Jaimeloeuf/DNS-Proxy-Node/issues"
+  },
+  "homepage": "https://github.com/Jaimeloeuf/DNS-Proxy-Node#readme"
+}
