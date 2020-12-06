@@ -1,15 +1,6 @@
 "use strict";
 
-const {
-  port = 53,
-
-  // Default DNS server to proxy
-  authority = {
-    address: "8.8.8.8",
-    port: 53,
-    type: "udp",
-  },
-} = require("../config.js");
+const config = require("config.js");
 
 const async = require("async");
 const dns = require("native-dns");
@@ -95,4 +86,4 @@ server.on("error", (err, buff, req, res) => console.error(err.stack));
 server.on("socketError", (err, socket) => console.error(err));
 server.on("listening", () => console.log("Listening to", server.address()));
 
-server.serve(port);
+server.serve(config.port);
