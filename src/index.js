@@ -5,6 +5,7 @@ const config = require("config.js");
 const async = require("async");
 const dns = require("native-dns");
 const server = dns.createServer();
+const proxy = require("./proxy");
 
 const entries = [
   {
@@ -20,20 +21,6 @@ const entries = [
     records: [{ type: "CNAME", address: "blocked.site.*" }],
   },
 ];
-
-function proxy(question, response, cb) {
-  const request = dns.Request({
-    question: question, // forwarding the question
-    server: authority, // this is the authoritative DNS server where requests are forwarded to
-    timeout: 700,
-  });
-
-  // when we get answers, append them to the response
-  // @todo Handle error(s)
-  request.on("message", (err, msg) => msg.answer.forEach(response.answer.push));
-  request.on("end", cb);
-  request.send();
-}
 
 server.on("request", function handleRequest(request, response) {
   console.log(
